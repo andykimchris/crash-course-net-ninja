@@ -1,9 +1,9 @@
 import { Injectable } from '@nestjs/common';
-import { createNinjaDto } from './dto/ninja';
+import { NinjaDto } from './dto/ninja';
 
 @Injectable()
 export class NinjasService {
-  private ninjas: createNinjaDto[] = [
+  private ninjas: NinjaDto[] = [
     { id: '1', name: 'rui', weapon: 'sword' },
     { id: '2', name: 'haikmura', weapon: 'nunchucks' },
     { id: '3', name: 'jackie' },
@@ -23,12 +23,12 @@ export class NinjasService {
     return this.ninjas;
   }
 
-  addNinja(ninja: createNinjaDto) {
+  addNinja(ninja: NinjaDto) {
     this.ninjas.push(ninja);
     return this.ninjas;
   }
 
-  updateNinja(ninja: createNinjaDto) {
+  updateNinja(ninja: NinjaDto) {
     this.ninjas.map((n) => {
       if (n.id === ninja.id) {
         return { ...n, ...ninja };
